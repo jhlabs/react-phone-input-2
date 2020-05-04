@@ -319,10 +319,8 @@ class PhoneInput extends React.Component {
     }
     else {
       newSelectedCountry = this.guessSelectedCountry(inputNumber.substring(0, 6), country, onlyCountries, hiddenAreaCodes) || selectedCountry;
-      const dialCode = newSelectedCountry && startsWith(inputNumber, newSelectedCountry.dialCode) ? newSelectedCountry.dialCode : '';
 
-      formattedNumber = this.formatNumber(
-        (this.props.disableCountryCode ? '' : dialCode) + inputNumber,
+      formattedNumber = this.formatNumber(inputNumber,
         newSelectedCountry ? (newSelectedCountry) : undefined
       );
       this.setState({ selectedCountry: newSelectedCountry, formattedNumber });
